@@ -1,0 +1,15 @@
+body {
+  max-width: 1250px;
+  margin: 0 auto;
+  background: linear-gradient(
+      rgba($color-main-bgrd, 0.95),
+      rgba($color-main-bgrd, 0.95)
+    ),
+    url("https://images.unsplash.com/photo-1498962342534-ee08a0bb1d45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80")
+      center repeat;
+  background-size: cover;
+  // background-attachment: fixed;
+  color: $color-main-text;
+  padding: 1em;
+  overflow-x: hidden;
+}

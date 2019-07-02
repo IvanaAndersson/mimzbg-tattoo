@@ -1,0 +1,95 @@
+.testimonials {
+  background: $color-red;
+  padding: 1em 0;
+  position: relative;
+  margin-top: 2em;
+
+  .testimonials--header {
+    margin-top: 1em;
+
+    &:after {
+      background: $color-main-bgrd;
+      width: 600px;
+      position: absolute;
+      left: -400px;
+
+      @include screen-width("tablet") {
+        left: -300px;
+      }
+      @include screen-width("laptop") {
+        left: -100px;
+      }
+    }
+
+    @include screen-width("laptop") {
+      text-align: left;
+      width: 90%;
+      margin-top: 0;
+    }
+  }
+
+  .testimonial {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+    .testimonial__image__container {
+      display: block;
+      width: 12rem;
+      height: 12rem;
+      margin: 0 auto;
+      border-radius: 50%;
+      position: relative;
+      top: 50px;
+      overflow: hidden;
+
+      &:before {
+        @extend %pseudo-elements;
+        padding-top: 100%;
+        background-color: $color-main-bgrd;
+      }
+
+      .testimonial__image {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .testimonial__content__container {
+      width: 100%;
+      padding: 5em 1em 1em 1em;
+      border: 1px solid $color-main-bgrd;
+
+      .testimonial__name {
+        font-style: italic;
+        text-align: right;
+      }
+    }
+
+    @include screen-width("tablet") {
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .testimonial__image__container {
+        width: 15rem;
+        height: 15rem;
+        position: absolute;
+      }
+
+      .testimonial__content__container {
+        margin-top: 5em;
+        .testimonial__content {
+          width: 50%;
+          display: flex;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

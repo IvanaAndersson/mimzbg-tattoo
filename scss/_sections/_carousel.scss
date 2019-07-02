@@ -1,0 +1,99 @@
+.carousel {
+  height: 60vh;
+  margin: 0 auto;
+  position: relative;
+
+  @include screen-width("desktop") {
+    height: 70vh;
+  }
+
+  .carousel__track-container {
+    width: 80%;
+    height: 90%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    .carousel__track {
+      height: 100%;
+      position: relative;
+      transition: transform 250ms ease-in;
+
+      .carousel__item {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .carousel__button {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: $color-main-bgrd;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+
+    &:before {
+      display: inline-block;
+      content: "";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 3em;
+      position: absolute;
+    }
+  }
+
+  .carousel__button--left::before {
+    content: "\f053";
+    left: 0.3em;
+
+    @include screen-width("tablet") {
+      left: 0.6em;
+    }
+    @include screen-width("laptop") {
+      left: 1.1em;
+    }
+  }
+
+  .carousel__button--right:before {
+    content: "\f054";
+    right: 0.3em;
+    @include screen-width("tablet") {
+      right: 0.6em;
+    }
+    @include screen-width("laptop") {
+      right: 1.1em;
+    }
+  }
+
+  .carousel__nav {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+
+    .carousel__indicator {
+      width: 1em;
+      height: 1em;
+      background: rgba($color-main-bgrd, 0.4);
+      border: 0;
+      outline: none;
+      border-radius: 50%;
+      margin: 0 0.5em;
+      cursor: pointer;
+
+      &.current-slide {
+        background: rgba($color-main-bgrd, 0.8);
+      }
+    }
+  }
+}
+
+.is-hidden {
+  display: none;
+}

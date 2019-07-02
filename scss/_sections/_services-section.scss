@@ -1,0 +1,100 @@
+.services {
+  .services--header {
+    position: relative;
+
+    &:after {
+      width: 700px;
+      background-color: $color-red;
+      position: absolute;
+      left: 80px;
+
+      @include screen-width("tablet") {
+        left: 150px;
+      }
+      @include screen-width("laptop") {
+        left: 250px;
+      }
+      @include screen-width("desktop") {
+        width: 900px;
+        left: 350px;
+      }
+      @include screen-width("huge") {
+        width: 1000px;
+        left: 400px;
+      }
+    }
+  }
+
+  .services-cards {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+    .services__card {
+      @extend %flex-centered;
+      margin: 2em;
+      overflow: hidden;
+      position: relative;
+
+      &:before {
+        @extend %pseudo-elements;
+        padding-top: 100%; //making the cards to remain in aspect ratio - square
+      }
+
+      .card__image {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .card__link {
+        position: relative;
+        z-index: 10;
+        text-decoration: none;
+        outline: none;
+        color: $color-main-text;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-shadow: 1px 1px 5px rgba(black, 0.9);
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+
+      &:after {
+        @extend %pseudo-box;
+        right: 0;
+        bottom: 0;
+        background: rgba($color-main-bgrd, 0.5);
+      }
+    }
+
+    @include screen-width("tablet") {
+      width: 90%;
+
+      .services__card {
+        &:before {
+          padding-top: 56.25%; //making the aspect ratio to be 9:16
+        }
+      }
+    }
+
+    @include screen-width("laptop") {
+      display: flex;
+      justify-content: space-evenly;
+
+      .services__card {
+        flex: 1 1 25%;
+
+        &:before {
+          padding-top: 100%;
+        }
+      }
+    }
+  }
+}

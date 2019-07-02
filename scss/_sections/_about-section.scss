@@ -1,0 +1,105 @@
+.about {
+  .left {
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+
+      @include screen-width("phone") {
+        width: 70%;
+      }
+    }
+  }
+
+  .right {
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin: 2rem 0;
+      position: relative;
+
+      &::first-letter {
+        font-size: 2em;
+      }
+
+      &::after {
+        display: block;
+        content: "";
+        height: 10px;
+        width: 600px;
+        background-color: $color-red;
+        position: absolute;
+        left: -400px;
+
+        @include screen-width("tablet") {
+          left: -300px;
+        }
+      }
+    }
+
+    p {
+      padding: 1em;
+      text-align: center;
+    }
+
+    .links {
+      a {
+        display: block;
+        margin: 2rem auto;
+        text-align: center;
+        font-size: 1.2em;
+        width: 200px;
+        padding: 1.2em 0.8em;
+
+        &:hover,
+        &:focus {
+          color: $color-red;
+          background-color: $color-main-text;
+        }
+      }
+      @include screen-width("tablet") {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+        a {
+          display: inline-block;
+          width: auto;
+          font-size: 1em;
+          padding: 1.2em 1.5em;
+          margin: 1rem;
+        }
+      }
+    }
+  }
+
+  @include screen-width("laptop") {
+    display: flex;
+    padding: 0 2em;
+
+    .left {
+      flex-basis: 40%;
+    }
+
+    .right {
+      flex-basis: 60%;
+      h1 {
+        text-align: left;
+        &:after {
+          width: 800px;
+          z-index: -1;
+        }
+      }
+
+      p {
+        text-align: justify;
+      }
+    }
+
+    .links {
+      a:first-of-type {
+        padding: 1.2em 2.2em;
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+// MAKING THE MOBILE NAVIGATION WITH BURGER MENU FIRST
+.main-nav {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba($color-main-bgrd, 0.8);
+  transform: scale(0, 1);
+  transform-origin: right;
+  transition: transform 400ms ease-in-out;
+  z-index: 1000;
+
+  ul {
+    display: block;
+
+    li {
+      display: block;
+      list-style: none outside;
+      padding: 1em 0;
+      opacity: 1;
+
+      a {
+        display: block;
+        color: $color-main-text;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1em;
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+
+        &:hover,
+        &:focus {
+          color: $color-red;
+        }
+      }
+    }
+  }
+}
+
+#nav-main-toggle {
+  display: none;
+}
+
+#nav-toggle {
+  color: $color-main-text;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  font-size: 2rem;
+
+  &:before {
+    content: "\f0c9";
+    color: $color-main-text;
+  }
+}
+
+#nav-main-toggle:checked ~ .main-nav {
+  display: flex;
+  transform: scale(1, 1);
+}
+
+#nav-main-toggle:checked + #nav-toggle::before {
+  content: "\f00d";
+  color: $color-main-text;
+}
+
+#nav-main-toggle:checked ~ .main-nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+// MAKING THE MENU FOR BIGGER SCREENS (NO BURGER MENU)
+
+@media screen and (min-width: 800px) {
+  .main-nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+
+      li {
+        a {
+          opacity: 1;
+
+          &:hover,
+          &:focus {
+            color: $color-red;
+          }
+        }
+      }
+    }
+  }
+  #nav-toggle {
+    display: none;
+  }
+}

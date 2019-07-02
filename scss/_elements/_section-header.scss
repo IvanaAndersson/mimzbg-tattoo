@@ -1,0 +1,12 @@
+.section-header {
+  width: 60%;
+  margin: 2em auto;
+  text-align: center;
+  padding: 1em;
+
+  &:after {
+    @extend %pseudo-elements;
+    height: 10px;
+    margin-top: 0.8em;
+  }
+}

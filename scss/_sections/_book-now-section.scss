@@ -1,0 +1,101 @@
+.form {
+  .booking--header {
+    margin-bottom: 0.5em;
+  }
+
+  form {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid $color-main-text;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+
+    .name__input,
+    .email__input,
+    .message__input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+
+      label {
+        text-align: center;
+        margin-bottom: 0.7em;
+      }
+
+      input,
+      textarea {
+        outline: none;
+        border: none;
+        border-radius: 0.2em;
+        padding: 0.5em;
+        font-family: $ff-text;
+      }
+
+      textarea {
+        resize: none;
+      }
+    }
+
+    .btn-form {
+      font-family: $ff-text;
+      width: 100%;
+      font-size: 1em;
+      outline: none;
+      border: none;
+      padding: 1em;
+      border-radius: 0.2em;
+      margin-top: auto;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background: $color-main-text;
+        color: $color-red;
+        font-weight: bold;
+      }
+    }
+
+    @include screen-width("laptop") {
+      .name__input,
+      .email__input,
+      .message__input {
+        flex-direction: row;
+
+        label {
+          flex-basis: 30%;
+          text-align: left;
+        }
+
+        input,
+        textarea {
+          flex-basis: 70%;
+        }
+      }
+    }
+
+    @include screen-width("desktop") {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+
+      .name__input,
+      .email__input,
+      .message__input {
+        flex-direction: column;
+        flex: 0 1 27%;
+
+        input,
+        textarea {
+          padding: 1.1em;
+        }
+      }
+
+      .btn-form {
+        order: 1;
+        width: 20%;
+      }
+    }
+  }
+}
